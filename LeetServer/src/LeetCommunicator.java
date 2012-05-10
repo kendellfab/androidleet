@@ -23,12 +23,12 @@ public class LeetCommunicator implements Runnable {
 			inputStream = new DataInputStream(client.getInputStream());
 			outputStream = new DataOutputStream(client.getOutputStream());
 			input = inputStream.readUTF();
-			System.out.println(input);
-			
+			System.out.println(input);			
 			
 			String output = makeLeet(input);
 			System.out.println(output);
 			outputStream.writeUTF(output);	
+			System.out.println("Finishing communication");
 			
 		} catch(Exception ex) {
 			

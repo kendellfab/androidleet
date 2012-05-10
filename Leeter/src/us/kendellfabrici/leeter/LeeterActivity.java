@@ -24,20 +24,36 @@ public class LeeterActivity extends Activity {
         
     }
     
+    /**
+     * This is the button click event, which kicks of the translation.
+     * @param v
+     */
     public void btTran_Click(View v) {
     	    	
     	String input = etInput.getText().toString();
     	new LeetCom().execute(input);
     }
     
+    /**
+     * This is the AsyncTask class.
+     * @author kendell
+     *
+     */
     private class LeetCom extends AsyncTask<String, Void, String> {
-
+    	
+    	/**
+    	 * The function that is run once the asynctask is kicked off.
+    	 */
 		@Override
 		protected String doInBackground(String... input) {
+			//The LeetCommunicator is where the socket communication happens.
 			LeetCommunicator com = new LeetCommunicator();
 			return com.sendMessage(input[0]);
 		}
 		
+		/**
+		 * The AsyncTask callback which handles marshalling the result to the main GUI thread.
+		 */
 		protected void onPostExecute(String result) {
 			etRes.setText(result);
 	    }

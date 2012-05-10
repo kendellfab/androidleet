@@ -1,7 +1,6 @@
 import java.net.ServerSocket;
 import java.net.Socket;
 
-
 public class LeetServer {
 	
 	private static final int _portNumber = 2222;
